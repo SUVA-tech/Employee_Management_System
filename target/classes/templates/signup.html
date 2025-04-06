@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Add User</title>
+</head>
+<body>
+    <h2>Register a New User (Admin Only)</h2>
+    <form th:action="@{/auth/signup}" method="post" th:object="${user}">
+        <label>Username:</label>
+        <input type="text" th:field="*{username}" required /><br/>
+
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" required /><br/>
+
+        <label>Role:</label>
+        <input type="text" th:field="*{role.name}" required /><br/>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <p th:if="${message}" th:text="${message}" style="color:green;"></p>
+    <p th:if="${error}" th:text="${error}" style="color:red;"></p>
+</body>
+</html>
